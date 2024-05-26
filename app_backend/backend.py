@@ -7,6 +7,8 @@ import json
 from pathlib import Path
 from datetime import date, datetime, timedelta
 from flask_cors import CORS, cross_origin
+# import os
+# port = os.environ["PORT"]
 global server
 global running
 app = Flask(__name__)
@@ -18,7 +20,7 @@ class ServerThread(threading.Thread):
 
     def __init__(self, app):
         threading.Thread.__init__(self)
-        self.server = make_server('127.0.0.1', 5000, app)
+        self.server = make_server('127.0.0.1', 10000, app)
         self.ctx = app.app_context()
         self.ctx.push()
 
