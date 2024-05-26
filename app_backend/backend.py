@@ -20,7 +20,7 @@ class ServerThread(threading.Thread):
 
     def __init__(self, app):
         threading.Thread.__init__(self)
-        self.server = make_server('127.0.0.1', 10000, app)
+        self.server = make_server('0.0.0.0', 10000, app)
         self.ctx = app.app_context()
         self.ctx.push()
 
@@ -94,7 +94,6 @@ def pingServers():
                 f.close()
                 
                 time.sleep(10)
-
 
 
 
